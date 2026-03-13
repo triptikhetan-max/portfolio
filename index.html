@@ -994,5 +994,20 @@
 </div>
 
 </div>
+<script>
+document.querySelectorAll('summary').forEach(function(summary) {
+  summary.addEventListener('click', function(e) {
+    var details = this.parentElement;
+    if (details && details.tagName === 'DETAILS') {
+      e.preventDefault();
+      if (details.hasAttribute('open')) {
+        details.removeAttribute('open');
+      } else {
+        details.setAttribute('open', '');
+      }
+    }
+  });
+});
+</script>
 </body>
 </html>
