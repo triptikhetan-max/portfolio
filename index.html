@@ -18,11 +18,12 @@
 
   details { border-bottom: 1px solid #f0f0f0; }
   details:last-child { border-bottom: none; }
-  summary { padding: 14px 24px; font-size: 15px; font-weight: 600; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px; transition: background 0.15s; }
+  summary { padding: 14px 24px; font-size: 15px; font-weight: 600; cursor: pointer; list-style: none; transition: background 0.15s; }
   summary:hover { background: #f8f9ff; }
   summary::-webkit-details-marker { display: none; }
-  summary::before { content: '\25B6'; font-size: 10px; color: #999; transition: transform 0.2s; flex-shrink: 0; }
-  details[open] > summary::before { transform: rotate(90deg); }
+  summary > span { display: flex; align-items: center; gap: 10px; }
+  summary > span::before { content: '\25B6'; font-size: 10px; color: #999; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary > span::before { transform: rotate(90deg); }
   details[open] > summary { color: #2563eb; }
   .ap details[open] > summary { color: #7c3aed; }
 
@@ -64,7 +65,7 @@
 
 <!-- Key Decisions -->
 <details>
-<summary>Key Decisions &mdash; Social Studies <span class="tag done">Done</span></summary>
+<summary><span>Key Decisions &mdash; Social Studies <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li><strong>1. Standards:</strong> Adopt TEKS as baseline K-8 SS standards across all Alpha campuses. 92.5% national overlap confirmed across 6 states. Short-term: TEKS backbone + state-history modules at G4 and G7. Long-term: "Universal-Plus" &mdash; TEKS + non-state-specific content from CA, FL, MA, NY, TN</li>
@@ -80,7 +81,7 @@
 
 <!-- Research -->
 <details>
-<summary>Research Conducted <span class="tag done">Done</span></summary>
+<summary><span>Research Conducted <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 
 <div class="subsection">
@@ -163,7 +164,8 @@
 </details>
 
 <!-- Standards -->
-<summary>Cross-State Standards Mapping &amp; Decision <span class="tag done">Done</span></summary>
+<details>
+<summary><span>Cross-State Standards Mapping &amp; Decision <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>6 states analyzed (TX, CA, FL, MA, NY, TN) with TEKS as baseline</li>
@@ -190,7 +192,7 @@
 
 <!-- Assessment & Testing -->
 <details>
-<summary>Assessment &amp; Testing Framework <span class="tag done">Done</span></summary>
+<summary><span>Assessment &amp; Testing Framework <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 
 <div class="subsection">
@@ -242,7 +244,7 @@
 
 <!-- QC Pipeline -->
 <details>
-<summary>Social Studies Test QC Pipeline <span class="tag done">Done</span></summary>
+<summary><span>Social Studies Test QC Pipeline <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>QC'd 6-8 existing tests on Edulastic during David P's tenure</li>
@@ -260,7 +262,7 @@
 
 <!-- Automated Test Creation -->
 <details>
-<summary>Automated Test Creation System <span class="tag onhold">On Hold</span></summary>
+<summary><span>Automated Test Creation System <span class="tag onhold">On Hold</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Problem: Tests built manually in Edulastic. No framework enforcing domain balance, DOK, or standards coverage. 87% failure rate on first QC</li>
@@ -287,7 +289,7 @@
 
 <!-- App Evaluation -->
 <details>
-<summary>App Evaluation Framework &amp; Reviews <span class="tag done">Done</span></summary>
+<summary><span>App Evaluation Framework &amp; Reviews <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <div class="subsection">
 <div class="subsection-title">6-Gatekeeper Evaluation Framework</div>
@@ -324,7 +326,7 @@
 
 <!-- Short-Term App Stack -->
 <details>
-<summary>Short-Term App Stack Decision <span class="tag done">Done</span></summary>
+<summary><span>Short-Term App Stack Decision <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li><strong>G3-5:</strong> BrainPOP instruction + PP100 mastery loop (Study Island + generated questions)</li>
@@ -342,7 +344,7 @@
 
 <!-- Long-Term Curriculum -->
 <details>
-<summary>Long-Term Curriculum Plan <span class="tag done">Done</span></summary>
+<summary><span>Long-Term Curriculum Plan <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Reviewed 5 published curricula: CKHG, inquirED, TCI, Studies Weekly, Savvas</li>
@@ -359,7 +361,7 @@
 
 <!-- G3 Course -->
 <details>
-<summary>Grade 3 Course v0.1 <span class="tag onhold">On Hold</span></summary>
+<summary><span>Grade 3 Course v0.1 <span class="tag onhold">On Hold</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>LEAP-aligned, Louisiana Student Standards framework</li>
@@ -377,7 +379,7 @@
 
 <!-- G3 Article Design -->
 <details>
-<summary>Grade 3 Article Design Vision <span class="tag done">Done</span></summary>
+<summary><span>Grade 3 Article Design Vision <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Full UX research: Nielsen Norman Group best practices, cogdev, Lexile, typography for ages 8-9</li>
@@ -391,7 +393,7 @@
 
 <!-- BRI Civics -->
 <details>
-<summary>BRI Civics Course <span class="tag onhold">On Hold</span></summary>
+<summary><span>BRI Civics Course <span class="tag onhold">On Hold</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Built in 1 week from Bill of Rights Institute content</li>
@@ -407,7 +409,7 @@
 
 <!-- Courses Shipped -->
 <details>
-<summary>Courses Shipped (G3-8) <span class="tag live">Live</span></summary>
+<summary><span>Courses Shipped (G3-8) <span class="tag live">Live</span></span></summary>
 <div class="detail-content">
 <ul>
   <li><strong>G6, G7, G8 Social Studies (Edmentum)</strong> &mdash; When David P left mid-project, stepped in when Kathryn asked (Jul-Aug 2025). Created the entire G6, G7, G8 SS course plan on Edmentum Courseware. Built out full XP calculation and learning outcomes for all three grades. Managed entire Edmentum acquisition &mdash; contacted vendor directly (Linda Thomas, Brittany Nichols) for quotes and course customization. Credit-bearing, TEKS-aligned, cheat-proof adapter (enhanced by Hari). Rostered all students, set up credentials. XP: ~4,275 XP total for G6-8. Handled SS student support tickets and escalations</li>
@@ -422,7 +424,7 @@
 
 <!-- Science Image Generation -->
 <details>
-<summary>Science Image Generation System <span class="tag done">Done</span></summary>
+<summary><span>Science Image Generation System <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Built automated image generation system for K-8 science test diagrams using Gemini API</li>
@@ -444,7 +446,7 @@
 
 <!-- K-8 Master Links -->
 <details>
-<summary>K-8 Social Studies &mdash; Master Links</summary>
+<summary><span>K-8 Social Studies &mdash; Master Links</span></summary>
 <div class="detail-content">
 <div class="links" style="border-top:none; padding-top:0; margin-top:0;">
   <a href="https://workflowy.com/#/3a3ee65e7a25" target="_blank">Social Studies K-8 Master (Workflowy)</a>
@@ -461,7 +463,7 @@
 
 <!-- S3 Review -->
 <details>
-<summary>S3 Practice Test Review + S4 Action Plans (Feb&ndash;Mar 2026) <span class="tag done">Done</span></summary>
+<summary><span>S3 Practice Test Review + S4 Action Plans (Feb&ndash;Mar 2026) <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Reviewed practice test results for 20 students across 5 AP subjects
@@ -508,7 +510,7 @@
 
 <!-- Google Forms -->
 <details>
-<summary>Google Forms Testing Script <span class="tag done">Done</span></summary>
+<summary><span>Google Forms Testing Script <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>When Timeback had issues with test administration, wrote a script to create Google Forms for test-taking</li>
@@ -519,7 +521,7 @@
 
 <!-- AP Psych -->
 <details>
-<summary>AP Psychology <span class="tag live">Live</span></summary>
+<summary><span>AP Psychology <span class="tag live">Live</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Built end-to-end course under Henno</li>
@@ -554,7 +556,7 @@
 
 <!-- AP EVS -->
 <details>
-<summary>AP Environmental Science <span class="tag live">Live</span></summary>
+<summary><span>AP Environmental Science <span class="tag live">Live</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Entire course built end-to-end: lesson plan from CED + AP Edition textbook, chunked into bite-sized articles, videos per topic, knowledge checks, topic quizzes, cumulative unit reviews</li>
@@ -574,7 +576,7 @@
 
 <!-- Edmentum -->
 <details>
-<summary>Edmentum Courseware Adapter <span class="tag live">Live</span></summary>
+<summary><span>Edmentum Courseware Adapter <span class="tag live">Live</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Acquired Edmentum courseware &mdash; directly contacted vendor (Linda Thomas, Brittany Nichols) for quotes and course customization</li>
@@ -592,7 +594,7 @@
 
 <!-- FRQ Auto-Grader -->
 <details>
-<summary>FRQ Auto-Grader System <span class="tag live">Live</span></summary>
+<summary><span>FRQ Auto-Grader System <span class="tag live">Live</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Built for APEVS, extensible to all AP courses</li>
@@ -622,7 +624,7 @@
 
 <!-- AP Macro -->
 <details>
-<summary>AP Macro &amp; Micro Economics <span class="tag done">Done</span></summary>
+<summary><span>AP Macro &amp; Micro Economics <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Lesson plans for both AP Macro and AP Micro courses</li>
@@ -644,7 +646,7 @@
 
 <!-- Source Material -->
 <details>
-<summary>AP Source Material &amp; CED Mapping (Aug 2024) <span class="tag done">Done</span></summary>
+<summary><span>AP Source Material &amp; CED Mapping (Aug 2024) <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Selected all source material for every AP course (except AP Lang and AP Lit): US History, World History, AP Psych, AP EVS, AP Physics, AP Chem, AP Human Geo</li>
@@ -663,7 +665,7 @@
 
 <!-- Raised Quality -->
 <details>
-<summary>Raised AP Quality Standards (Aug 2024) <span class="tag done">Done</span></summary>
+<summary><span>Raised AP Quality Standards (Aug 2024) <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>When HS launched and AP courses were failing students, formally raised quality concerns to Gui in the "High School Emergency" thread</li>
@@ -676,7 +678,7 @@
 
 <!-- Student Study Plans -->
 <details>
-<summary>Individual Student Study Plans (Dec 2024 &ndash; Jan 2025) <span class="tag done">Done</span></summary>
+<summary><span>Individual Student Study Plans (Dec 2024 &ndash; Jan 2025) <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>For all AP courses that weren't ready on AlphaLearn, created individual study plans so students wouldn't fall behind</li>
@@ -695,7 +697,7 @@
 
 <!-- BrainLifts -->
 <details>
-<summary>BrainLifts (8 Deep Research Documents) <span class="tag done">Done</span></summary>
+<summary><span>BrainLifts (8 Deep Research Documents) <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 
 <div class="subsection">
@@ -794,7 +796,7 @@
 
 <!-- Other -->
 <details>
-<summary>Other Work <span class="tag done">Done</span></summary>
+<summary><span>Other Work <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li><strong>Civics Time Machine</strong> &mdash; Concept developed and handed to Dan/SuperBuilders for implementation</li>
@@ -805,7 +807,7 @@
 
 <!-- AP Master Links -->
 <details>
-<summary>AP Work &mdash; Master Drive Folder</summary>
+<summary><span>AP Work &mdash; Master Drive Folder</span></summary>
 <div class="detail-content">
 <div class="links" style="border-top:none; padding-top:0; margin-top:0;">
   <a href="https://drive.google.com/drive/folders/1PZxFRO4amuynUx_fGG5a--ywuREQ4338" target="_blank">All AP Work (Drive)</a>
@@ -820,7 +822,7 @@
 <div class="section-body">
 
 <details>
-<summary>Cross-State Standards Mapping System <span class="tag done">Done</span></summary>
+<summary><span>Cross-State Standards Mapping System <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>LLM-based mapping system with classification rules for equivalent, related, or no-match</li>
@@ -831,7 +833,7 @@
 </details>
 
 <details>
-<summary>App Evaluation Framework (6-Gatekeeper) <span class="tag done">Done</span></summary>
+<summary><span>App Evaluation Framework (6-Gatekeeper) <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>6 non-negotiable criteria: Independence &amp; Scalability, Cognitive Load Management, Decision &amp; Application, Retrieval &amp; Practice, Objective Assessability, Knowledge-First &amp; Narrative Coherence</li>
@@ -842,7 +844,7 @@
 </details>
 
 <details>
-<summary>Assessment Tagging System <span class="tag done">Done</span></summary>
+<summary><span>Assessment Tagging System <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>6 tag dimensions: Domain, DOK (1-4), NCSS themes (10), Learning Objectives, Flesch-Kincaid Readability, Item Types</li>
@@ -853,7 +855,7 @@
 </details>
 
 <details>
-<summary>QC Pipeline (Social Studies Tests) <span class="tag done">Done</span></summary>
+<summary><span>QC Pipeline (Social Studies Tests) <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>175 documented QC issues &rarr; script-decomposed into 521 granular, objective QC checks</li>
@@ -864,7 +866,7 @@
 </details>
 
 <details>
-<summary>MCQ Generation QC Pipeline (AP Psychology) <span class="tag done">Done</span></summary>
+<summary><span>MCQ Generation QC Pipeline (AP Psychology) <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Concept Finder &rarr; Question Generation &rarr; QC Loop with pass/blocker/major issue routing</li>
@@ -876,7 +878,7 @@
 </details>
 
 <details>
-<summary>Automated Test Creation System <span class="tag onhold">On Hold</span></summary>
+<summary><span>Automated Test Creation System <span class="tag onhold">On Hold</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Centralized question bank with multi-dimensional tagging</li>
@@ -888,7 +890,7 @@
 </details>
 
 <details>
-<summary>FRQ AutoGrader (7-Stage Architecture) <span class="tag live">Live</span></summary>
+<summary><span>FRQ AutoGrader (7-Stage Architecture) <span class="tag live">Live</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>7 stages: Question Parsing &rarr; Rubric Matching &rarr; Response Analysis &rarr; Scoring &rarr; Feedback Generation &rarr; Compilation &rarr; Testing</li>
@@ -900,7 +902,7 @@
 </details>
 
 <details>
-<summary>3-Layer Learning Framework <span class="tag done">Done</span></summary>
+<summary><span>3-Layer Learning Framework <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Layer 1: Core Knowledge Acquisition &amp; Memorization</li>
@@ -912,7 +914,7 @@
 </details>
 
 <details>
-<summary>Recognition-Retrieval Gap Framework <span class="tag done">Done</span></summary>
+<summary><span>Recognition-Retrieval Gap Framework <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Identified 25-30 point drop when context clues removed from assessment</li>
@@ -923,7 +925,7 @@
 </details>
 
 <details>
-<summary>LEARN&rarr;CHECK&rarr;PRACTICE&rarr;APPLY Pattern <span class="tag done">Done</span></summary>
+<summary><span>LEARN&rarr;CHECK&rarr;PRACTICE&rarr;APPLY Pattern <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Established as standard build pattern after reviewing 9 Ilma builds</li>
@@ -934,7 +936,7 @@
 </details>
 
 <details>
-<summary>CED Skill Mapping System <span class="tag done">Done</span></summary>
+<summary><span>CED Skill Mapping System <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Per-student skill profiles mapped against College Board CED</li>
@@ -945,7 +947,7 @@
 </details>
 
 <details>
-<summary>Student Risk Classification (6-Tier) <span class="tag done">Done</span></summary>
+<summary><span>Student Risk Classification (6-Tier) <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Critical &rarr; High &rarr; Moderate &rarr; Watch &rarr; On-Track &rarr; Low risk tiers</li>
@@ -956,7 +958,7 @@
 </details>
 
 <details>
-<summary>Science Image Generation System <span class="tag done">Done</span></summary>
+<summary><span>Science Image Generation System <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>3 Python scripts: API-based (Gemini), upgraded v3 with grade-level parsing, browser automation fallback (Playwright)</li>
@@ -967,7 +969,7 @@
 </details>
 
 <details>
-<summary>G3 Article Design System <span class="tag done">Done</span></summary>
+<summary><span>G3 Article Design System <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Component specs: Title, Learning Objective Box, Vocabulary Box (8-12 terms), Body Paragraphs (2-4 sentences, 16px), Section Headings, Think Boxes, Maps, Primary Sources, Videos</li>
@@ -979,7 +981,7 @@
 </details>
 
 <details>
-<summary>Textbook-to-CED Mapping Process <span class="tag done">Done</span></summary>
+<summary><span>Textbook-to-CED Mapping Process <span class="tag done">Done</span></span></summary>
 <div class="detail-content">
 <ul>
   <li>Created the process that became the template for all AP course creation</li>
