@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everything I've Worked On at Alpha</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a1a; line-height: 1.6; padding: 40px 20px; }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { color: #666; font-size: 15px; margin-bottom: 36px; }
+  .section-header { font-size: 22px; font-weight: 700; color: #fff; padding: 16px 24px; border-radius: 12px 12px 0 0; margin-top: 40px; cursor: default; }
+  .section-header.k8 { background: #2563eb; }
+  .section-header.ap { background: #7c3aed; }
+  .section-header.systems { background: #059669; }
+  .section-body { background: #fff; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 12px 12px; padding: 8px 0; margin-bottom: 8px; }
+
+  details { border-bottom: 1px solid #f0f0f0; }
+  details:last-child { border-bottom: none; }
+  summary { padding: 14px 24px; font-size: 15px; font-weight: 600; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px; transition: background 0.15s; }
+  summary:hover { background: #f8f9ff; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #999; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  details[open] > summary { color: #2563eb; }
+  .ap details[open] > summary { color: #7c3aed; }
+
+  .detail-content { padding: 0 24px 18px 44px; font-size: 14px; color: #444; }
+  .detail-content ul { margin: 6px 0 6px 18px; }
+  .detail-content li { margin-bottom: 5px; }
+  .detail-content li li { color: #666; font-size: 13px; }
+
+  .links { margin-top: 12px; padding-top: 10px; border-top: 1px solid #f0f0f0; }
+  .links-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #999; margin-bottom: 6px; }
+  .links a { display: inline-block; font-size: 13px; color: #2563eb; text-decoration: none; margin-right: 16px; margin-bottom: 4px; }
+  .ap .links a { color: #7c3aed; }
+  .links a:hover { text-decoration: underline; }
+
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-left: 6px; }
+  .tag.live { background: #dcfce7; color: #166534; }
+  .tag.onhold { background: #fef3c7; color: #92400e; }
+  .tag.done { background: #e0e7ff; color: #3730a3; }
+
+  .subsection { margin-top: 14px; }
+  .subsection-title { font-size: 13px; font-weight: 700; color: #333; margin-bottom: 4px; }
+
+  @media (max-width: 600px) {
+    body { padding: 20px 12px; }
+    summary { padding: 12px 16px; font-size: 14px; }
+    .detail-content { padding: 0 16px 14px 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Everything I've Worked On at Alpha</h1>
+<p class="subtitle">Tripti Khetan &mdash; Aug 2024 to Mar 2026</p>
+
+<!-- ==================== K-8 ==================== -->
+<div class="section-header k8">K-8</div>
+<div class="section-body">
+
+<!-- Key Decisions -->
+<details>
+<summary>Key Decisions &mdash; Social Studies <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li><strong>1. Standards:</strong> Adopt TEKS as baseline K-8 SS standards across all Alpha campuses. 92.5% national overlap confirmed across 6 states. Short-term: TEKS backbone + state-history modules at G4 and G7. Long-term: "Universal-Plus" &mdash; TEKS + non-state-specific content from CA, FL, MA, NY, TN</li>
+  <li><strong>2. Testing:</strong> No external national SS test works for a multi-state charter network &mdash; Alpha builds its own assessment framework. STAAR G8 blueprint adapted downward for G3-5. TEKS throughout (60-70% Readiness, 30-40% Supporting). Externally sourced questions only. G8 summative = STAAR</li>
+  <li><strong>3. App Stack (Short-Term):</strong> G3-5: BrainPOP instruction + PP100 mastery loop (Study Island + generated IXL-style questions). G6-8: Edmentum Courseware &mdash; credit-bearing, TEKS-aligned. This is patchwork &mdash; fills the gap but is not a long-term curriculum</li>
+  <li><strong>4. Long-Term Curriculum:</strong> Build Alpha's own K-8 SS curriculum &mdash; everything on the market is teacher-dependent or incomplete. CKHG as content base + BrainPOP/YouTube for video + BRI for civics. Architecture: TEKS-Structured Modular (recommended). Multi-month build, on hold pending engineering</li>
+  <li><strong>5. Learning Outcomes:</strong> SS contributes to Alpha's 2x acceleration goal. Performance measured via PP100 mastery (G3-5), 80% accuracy on Mastery/Unit Tests (G6-8 Edmentum), TEKS-aligned end-of-grade assessments (G3-8), STAAR G8 as external summative benchmark</li>
+  <li><strong>6. XP:</strong> 1 XP = 1 min active learning. G3 BrainPOP ~1,020 XP (vs old IXL-only ~738 XP). G6-8 Edmentum 4,275 XP. BRI Civics 450 XP</li>
+  <li><strong>7. Assessment System:</strong> Replace manual one-off test creation with centralized, automated, framework-enforced assessment generation. Framework-agnostic, standards-agnostic, content-source-agnostic. G3 TEKS MVP scoped. On hold pending engineering</li>
+</ul>
+</div>
+</details>
+
+<!-- Research -->
+<details>
+<summary>Research Conducted <span class="tag done">Done</span></summary>
+<div class="detail-content">
+
+<div class="subsection">
+<div class="subsection-title">Cross-State Standards Analysis</div>
+<ul>
+  <li>6 states analyzed (TX, CA, FL, MA, NY, TN) with TEKS as baseline</li>
+  <li>564 TEKS standards mapped; 743 additional standards from other states not in TEKS</li>
+  <li>~22% excluded as state-specific/local identity content</li>
+  <li>Built LLM-based mapping system with classification rules</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">50-State Standardized Testing Survey</div>
+<ul>
+  <li>Complete state-by-state survey of every U.S. state's SS assessment for grades 3-8</li>
+  <li>Only ~14 states mandate SS testing in K-8 (ESSA does not require it)</li>
+  <li>14 testing states analyzed in depth: CO, DE, FL, GA, IN, KS, KY, LA, MD, MI, TN, TX, VA, WI</li>
+  <li>Documented every state's framework, question types, DOK levels, item counts</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">Assessment Evaluation (8 Tests Compared)</div>
+<ul>
+  <li>Iowa/ITBS, SAT-10, TerraNova, NWEA MAP, NAEP, LEAP, STAAR, CMAS</li>
+  <li>8-criteria framework: Blueprint Transparency, DOK Distribution, C3 Alignment, Curriculum Design Suitability, Item Accessibility, Cognitive Rigor, External Validation, Compliance/Scalability</li>
+  <li>Key finding: NWEA MAP does not include Social Studies</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">Cognitive Development Research</div>
+<ul>
+  <li>Piaget stages, working memory capacity by age, attention span research</li>
+  <li>Grade-by-grade assessment framework reverse-engineered from STAAR G8 downward</li>
+  <li>DOK distribution and item types calibrated per grade level based on cognitive capacity</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">G3 Article Design UX Research</div>
+<ul>
+  <li>Nielsen Norman Group best practices for children's UX</li>
+  <li>Touch targets (2cm&times;2cm), F-pattern/Z-pattern reading behavior</li>
+  <li>Children's attention span (8-12 min), Lexile framework (520L-820L)</li>
+  <li>Typography research (x-height, letter spacing, sans-serif for headings, serif for body)</li>
+  <li>Reviewed: Scholastic News, PebbleGo, Newsela, Time for Kids</li>
+  <li>12 research sources across UX design, digital reading, educational platforms, standards frameworks</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">Curriculum Evaluation</div>
+<ul>
+  <li>5 published curricula reviewed: CKHG, inquirED, TCI, Studies Weekly, Savvas</li>
+  <li>CKHG selected: 65% TEKS coverage, Creative Commons licensable</li>
+  <li>6 core challenges identified for CKHG &rarr; digital conversion (teacher-led storytelling, long continuous text, in-person activities, embedded vocabulary, video alignment, assumed background knowledge)</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">App/Resource Evaluation</div>
+<ul>
+  <li>15+ apps and resources evaluated with 6-Gatekeeper framework</li>
+  <li>9 resources compared for Andy (Jan 2026)</li>
+  <li>IXL, Study Island, Edmentum, BrainPOP, iCivics, Kids Discover, Savvas, MobyMax, Freckle, Newsela, and more</li>
+</ul>
+</div>
+
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/document/d/1KX3kGvF88UD6eXwDe0zuEuY_ZjQTorq2lzeCUJ5RWpc/edit" target="_blank">Cross-State Standards Report</a>
+  <a href="https://docs.google.com/spreadsheets/d/1Jru_oV0VVmP4c9AyrsFJUcoNjlRv3BbsL3gsWC-qg-8/edit" target="_blank">Standards Mapping Sheet</a>
+  <a href="https://docs.google.com/spreadsheets/d/1IFDohm8NoqHy0ebVKOwW-mxcpkrWP8glyAKZhrLXB0Y/edit" target="_blank">Assessment Evaluation Sheet</a>
+  <a href="https://docs.google.com/spreadsheets/d/1_c1Zo8d8WKHSgargSJ4Z_iyAnFIsuPPPIpyEn3KKAdI/edit" target="_blank">All Apps Master Sheet</a>
+  <a href="https://docs.google.com/spreadsheets/d/1fpVkXXNUWTgRFGtwJqK0Rm7i9YSrtAazQ21aUbLJ2z8/edit" target="_blank">SS Resources Comparison</a>
+</div>
+</div>
+</details>
+
+<!-- Standards -->
+<summary>Cross-State Standards Mapping &amp; Decision <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>6 states analyzed (TX, CA, FL, MA, NY, TN) with TEKS as baseline</li>
+  <li>564 TEKS standards mapped &mdash; confirmed 92.5% national overlap</li>
+  <li>~34 standards unique to Texas; 743 additional standards in other states not in TEKS</li>
+  <li>~22% of all reviewed standards excluded as state-specific/local identity content</li>
+  <li>LLM-based mapping system built with classification rules for equivalent, related, or no-match</li>
+  <li>Prior EDU Deep Dive (Guilherme Colombo, Feb 2025) independently confirmed TEKS as best option</li>
+  <li><strong>Decision:</strong> Adopt TEKS as baseline K-8 SS standards across all Alpha campuses
+    <ul>
+      <li>Short-term: TEKS backbone, supplement with state-history modules at G4 and G7</li>
+      <li>Long-term: "Universal-Plus" curriculum &mdash; TEKS backbone + non-state-specific content from 5 comparison states</li>
+    </ul>
+  </li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/document/d/1KX3kGvF88UD6eXwDe0zuEuY_ZjQTorq2lzeCUJ5RWpc/edit" target="_blank">Cross-State Standards Report</a>
+  <a href="https://docs.google.com/spreadsheets/d/1Jru_oV0VVmP4c9AyrsFJUcoNjlRv3BbsL3gsWC-qg-8/edit" target="_blank">Standards Mapping Sheet</a>
+  <a href="https://workflowy.com/#/120a9de5e8f9" target="_blank">Standards Decision (Workflowy)</a>
+</div>
+</div>
+</details>
+
+<!-- Assessment & Testing -->
+<details>
+<summary>Assessment &amp; Testing Framework <span class="tag done">Done</span></summary>
+<div class="detail-content">
+
+<div class="subsection">
+<div class="subsection-title">50-State Standardized Testing Survey</div>
+<ul>
+  <li>Complete state-by-state survey of every U.S. state's SS assessment for grades 3-8</li>
+  <li>Only ~14 states mandate SS testing in K-8 (ESSA does not require it)</li>
+  <li>14 testing states analyzed in depth: CO, DE, FL, GA, IN, KS, KY, LA, MD, MI, TN, TX, VA, WI</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">Assessment Evaluation (8 Tests Compared)</div>
+<ul>
+  <li>Iowa/ITBS, SAT-10, TerraNova, NWEA MAP, NAEP, LEAP, STAAR, CMAS</li>
+  <li>8-criteria framework: Blueprint Transparency, DOK Distribution, C3 Alignment, Curriculum Design Suitability, Item Accessibility, Cognitive Rigor, External Validation, Compliance/Scalability</li>
+  <li>Key finding: NWEA MAP does not include Social Studies</li>
+  <li>Recommended LEAP as foundation (C3-aligned, DOK 2-4, published blueprint, G3-8)</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">Grade-by-Grade Assessment Framework (G3-5)</div>
+<ul>
+  <li>Reverse-engineered from STAAR G8 downward</li>
+  <li>G3: 20-25 items, 35-40 min | G4: 25-30 items, 45-50 min | G5: 30-35 items, 50-60 min</li>
+  <li>DOK-distributed, domain-balanced (History 40%, Geo 25%, Gov 20%, Econ 15%)</li>
+  <li>Grounded in cognitive development research (Piaget, working memory, attention spans)</li>
+  <li>Item types per grade: MC, hot spot, drag-and-drop, timeline sequencing, DBQ-lite</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">Assessment Tagging System</div>
+<ul>
+  <li>6 tag dimensions: Domain, DOK (1-4), NCSS themes (10), learning objectives, Flesch-Kincaid readability, item types</li>
+</ul>
+</div>
+
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/spreadsheets/d/1IFDohm8NoqHy0ebVKOwW-mxcpkrWP8glyAKZhrLXB0Y/edit" target="_blank">Assessment Evaluation Sheet</a>
+  <a href="https://docs.google.com/document/d/1aQ1rpkQUzgb0uNWWtP8yCuFdfo0M6v2pKLvrr5vm2q0/edit" target="_blank">Assessment Tagging Doc</a>
+  <a href="https://workflowy.com/#/3194895930a2" target="_blank">Assessment Framework (Workflowy)</a>
+  <a href="https://workflowy.com/#/5b9c9454a12e" target="_blank">LEAP Research (Workflowy)</a>
+</div>
+</div>
+</details>
+
+<!-- QC Pipeline -->
+<details>
+<summary>Social Studies Test QC Pipeline <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>QC'd 6-8 existing tests on Edulastic during David P's tenure</li>
+  <li>Found 87% of reviewed items required comments or changes</li>
+  <li>175 documented QC issues consolidated into single issue set</li>
+  <li>Script-decomposed into 521 granular, objective QC checks</li>
+  <li>Cross-subject QC data: 234 tracked tests, 1,855 question-level issues, 9,566 questions needing manual tagging</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/spreadsheets/d/1oLeWF-WexuMyLCDLyqd0asrRnC_uTviLXrv5PDEZZEY/edit" target="_blank">QC Issues Sheet (175 &rarr; 521)</a>
+</div>
+</div>
+</details>
+
+<!-- Automated Test Creation -->
+<details>
+<summary>Automated Test Creation System <span class="tag onhold">On Hold</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Problem: Tests built manually in Edulastic. No framework enforcing domain balance, DOK, or standards coverage. 87% failure rate on first QC</li>
+  <li>Solution designed: Centralized, framework-enforced assessment generation
+    <ul>
+      <li>Centralized question bank with multi-dimensional tagging</li>
+      <li>Framework controls every test: domain, DOK, item type, standards coverage</li>
+      <li>Instruction &rarr; assessment alignment enforced</li>
+      <li>Stable test structures with standards recurrence</li>
+    </ul>
+  </li>
+  <li>G3 TEKS MVP scoped &mdash; full system architecture</li>
+  <li>Akshit Chaturvedi built prototypes: Study Island scraper, tagging system, CASE standards for all 50 states</li>
+  <li>On hold &mdash; Akshit reassigned to AP courses Jan 2026</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://workflowy.com/#/962f3a0e019a" target="_blank">Assessment System Design (Workflowy)</a>
+  <a href="https://workflowy.com/#/20e5b74c95dc" target="_blank">G3 MVP Assessment (Workflowy)</a>
+  <a href="https://drive.google.com/drive/folders/1GfU3wEggTB62c5oQ8zgqGd1W_Vzce7lz" target="_blank">Central Question Bank (Drive)</a>
+</div>
+</div>
+</details>
+
+<!-- App Evaluation -->
+<details>
+<summary>App Evaluation Framework &amp; Reviews <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<div class="subsection">
+<div class="subsection-title">6-Gatekeeper Evaluation Framework</div>
+<ul>
+  <li>Independence &amp; Scalability</li>
+  <li>Cognitive Load Management</li>
+  <li>Decision &amp; Application</li>
+  <li>Retrieval &amp; Practice</li>
+  <li>Objective Assessability</li>
+  <li>Knowledge-First &amp; Narrative Coherence</li>
+  <li>Classification: Core-Ready / Enrichment / Misaligned</li>
+</ul>
+</div>
+<div class="subsection">
+<div class="subsection-title">Apps Reviewed</div>
+<ul>
+  <li>iCivics &mdash; Core (Civics strand only)</li>
+  <li>BrainPOP &mdash; Scoped Core (G3-5)</li>
+  <li>IXL, Study Island, Edmentum, Kids Discover, Savvas, MobyMax, Freckle</li>
+  <li>Newsela, Flying Colors, DIG, Curiosity Chronicles, Fishtank, Stack the Countries/States, others</li>
+  <li>SS Resources Comparison for Andy (Jan 2026) &mdash; 9 resources evaluated</li>
+  <li>Managed BrainPOP subscription</li>
+</ul>
+</div>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/spreadsheets/d/1_c1Zo8d8WKHSgargSJ4Z_iyAnFIsuPPPIpyEn3KKAdI/edit" target="_blank">All Apps Master Sheet</a>
+  <a href="https://docs.google.com/spreadsheets/d/1fpVkXXNUWTgRFGtwJqK0Rm7i9YSrtAazQ21aUbLJ2z8/edit" target="_blank">SS Resources Comparison</a>
+  <a href="https://workflowy.com/#/6f2e3b287a62" target="_blank">Evaluation Framework (Workflowy)</a>
+  <a href="https://workflowy.com/#/fac2ab2388b6" target="_blank">Detailed Evaluations (Workflowy)</a>
+</div>
+</div>
+</details>
+
+<!-- Short-Term App Stack -->
+<details>
+<summary>Short-Term App Stack Decision <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li><strong>G3-5:</strong> BrainPOP instruction + PP100 mastery loop (Study Island + generated questions)</li>
+  <li><strong>G6-8:</strong> Edmentum Courseware &mdash; credit-bearing, TEKS-aligned</li>
+  <li>G3 BrainPOP skill plan built: 60 topics, ~70-80% alignment with IXL confirmed</li>
+  <li>Study Island quiz banks downloaded (~12 articles per grade)</li>
+  <li>XP: New plan ~1,020 XP vs old (IXL only) ~738 XP for G3-5; Edmentum = 4,275 XP for G6-8</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://workflowy.com/#/e6d4dd86e583" target="_blank">App Stack / Short-Term (Workflowy)</a>
+</div>
+</div>
+</details>
+
+<!-- Long-Term Curriculum -->
+<details>
+<summary>Long-Term Curriculum Plan <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Reviewed 5 published curricula: CKHG, inquirED, TCI, Studies Weekly, Savvas</li>
+  <li>Selected CKHG as long-term foundation &mdash; 65% TEKS coverage, Creative Commons licensable</li>
+  <li>Two architecture options: TEKS-Structured Modular (recommended) vs Louisiana CK Narrative</li>
+  <li>CKHG + BRI for civics + BrainPOP/YouTube for video + state-specific modules</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://workflowy.com/#/bf00d418f874" target="_blank">Long-Term Curriculum (Workflowy)</a>
+</div>
+</div>
+</details>
+
+<!-- G3 Course -->
+<details>
+<summary>Grade 3 Course v0.1 <span class="tag onhold">On Hold</span></summary>
+<div class="detail-content">
+<ul>
+  <li>LEAP-aligned, Louisiana Student Standards framework</li>
+  <li>CKHG as primary content, ABC Coursewave as secondary</li>
+  <li>6 core challenges identified for CKHG &rarr; digital conversion (teacher-led &rarr; self-paced)</li>
+  <li>Unit 1 (Founding of the USA): 21 items across 6 blocks
+    <ul>
+      <li>Life in the Colonies, Taxes &amp; Protests, Colonies Unite, Independence Movement, Turning Points, Symbols of a New Nation</li>
+    </ul>
+  </li>
+  <li>Unit 2 (Constitutional Convention): objectives defined</li>
+</ul>
+</div>
+</details>
+
+<!-- G3 Article Design -->
+<details>
+<summary>Grade 3 Article Design Vision <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Full UX research: Nielsen Norman Group best practices, cogdev, Lexile, typography for ages 8-9</li>
+  <li>Touch targets 2cm &times; 2cm, F-pattern/Z-pattern reading, attention span 8-12 min</li>
+  <li>Components: title, learning objective box, vocabulary box (8-12 terms), body paragraphs (2-4 sentences, 16px Georgia), section headings, Think Boxes</li>
+  <li>Special content specs for maps, primary sources, video (max 3-4 min)</li>
+  <li>Target reading level: 520L-820L Lexile</li>
+</ul>
+</div>
+</details>
+
+<!-- BRI Civics -->
+<details>
+<summary>BRI Civics Course <span class="tag onhold">On Hold</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Built in 1 week from Bill of Rights Institute content</li>
+  <li>Inquiry-based redesign via LLM, Lexile leveling, learning objectives, vocabulary</li>
+  <li>3 in-article MC knowledge checks per article</li>
+  <li>35-45 question assessment pool per lesson (easy/medium/hard), LLM QC pipeline applied</li>
+  <li>Standards coverage: C3 69%, NY 76%, TEKS 90%</li>
+  <li>Ilma uploaded all content on Timeback</li>
+  <li>Phase 2 planned: stimulus-based questions, image questions, FRQs, economics &amp; geography expansion</li>
+</ul>
+</div>
+</details>
+
+<!-- Courses Shipped -->
+<details>
+<summary>Courses Shipped (G3-8) <span class="tag live">Live</span></summary>
+<div class="detail-content">
+<ul>
+  <li><strong>G6, G7, G8 Social Studies (Edmentum)</strong> &mdash; When David P left mid-project, stepped in when Kathryn asked (Jul-Aug 2025). Created the entire G6, G7, G8 SS course plan on Edmentum Courseware. Built out full XP calculation and learning outcomes for all three grades. Managed entire Edmentum acquisition &mdash; contacted vendor directly (Linda Thomas, Brittany Nichols) for quotes and course customization. Credit-bearing, TEKS-aligned, cheat-proof adapter (enhanced by Hari). Rostered all students, set up credentials. XP: ~4,275 XP total for G6-8. Handled SS student support tickets and escalations</li>
+  <li><strong>Grade 3 Skill Plan</strong> &mdash; 1,100+ mapped items across IXL / BrainPOP / Study Island to TEKS. XP: ~1,020 XP (new plan) vs ~738 XP (old IXL-only plan)</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/document/d/1L2nVaJQngbfNQuM56cZsjIfeqQQ79Hb38hTQ2yOE8ws/edit" target="_blank">Rostering Doc</a>
+</div>
+</div>
+</details>
+
+<!-- Science Image Generation -->
+<details>
+<summary>Science Image Generation System <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Built automated image generation system for K-8 science test diagrams using Gemini API</li>
+  <li>3 Python scripts:
+    <ul>
+      <li>API-based generator (generate_images_gemini.py)</li>
+      <li>Upgraded v3 with grade-level prompt parsing (generate_images_gemini3.py)</li>
+      <li>Browser automation fallback using Playwright (generate_images_browser.py)</li>
+    </ul>
+  </li>
+  <li>2 shell scripts for batch execution</li>
+  <li>Wrote detailed image prompts for G3-G8, each with grade-appropriate style guide</li>
+  <li>Generated 214 total images: G3 (35), G4 (35), G5 (36), G6 (36), G7 (36), G8 (36)</li>
+  <li>Types: life cycle diagrams, data tables, investigation setups, force diagrams, climate charts, comparison tables</li>
+  <li>Built for Crissy Pratt's science team &mdash; test items on Edulastic</li>
+</ul>
+</div>
+</details>
+
+<!-- K-8 Master Links -->
+<details>
+<summary>K-8 Social Studies &mdash; Master Links</summary>
+<div class="detail-content">
+<div class="links" style="border-top:none; padding-top:0; margin-top:0;">
+  <a href="https://workflowy.com/#/3a3ee65e7a25" target="_blank">Social Studies K-8 Master (Workflowy)</a>
+  <a href="https://workflowy.com/#/abf149ef88e3" target="_blank">Full Workflowy</a>
+</div>
+</div>
+</details>
+
+</div>
+
+<!-- ==================== AP ==================== -->
+<div class="section-header ap">AP / High School</div>
+<div class="section-body ap">
+
+<!-- S3 Review -->
+<details>
+<summary>S3 Practice Test Review + S4 Action Plans (Feb&ndash;Mar 2026) <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Reviewed practice test results for 20 students across 5 AP subjects
+    <ul>
+      <li>AP Human Geography (10 students)</li>
+      <li>AP World History (6 students)</li>
+      <li>AP US History (2 students)</li>
+      <li>AP Psychology (1 student)</li>
+      <li>AP US Government (1 student)</li>
+    </ul>
+  </li>
+  <li>Built diagnostic system using 3-Layer Framework
+    <ul>
+      <li>Layer 1: Core Knowledge Acquisition &amp; Memorization</li>
+      <li>Layer 2: Disciplinary Moves (subject-specific analytical skills)</li>
+      <li>Layer 3: Exam Technique (MCQ/FRQ format mastery)</li>
+      <li>Mapped every at-risk student to which layer(s) they fail on with CED skill breakdowns</li>
+    </ul>
+  </li>
+  <li>Wrote 5 subject review documents with individual plans for 9 at-risk students</li>
+  <li>Created master spreadsheet (20 students &times; 12 columns &mdash; scores, insights, action plans, student-facing summaries, Ilma actions)</li>
+  <li>Wrote BrainLift strategy document (11 DOK4 Spiky POVs, 17 DOK3 insights)</li>
+  <li>Key finding: FRQ is the differentiator &mdash; every student who scored 5 had FRQ &ge; 77%, every student scoring 1-3 had FRQ &le; 63%</li>
+  <li>DBQ identified as single highest-leverage intervention &mdash; 4/5 AP World takers scored 1-2/7</li>
+  <li>Delivered S3 review to Eric via email + Drive</li>
+  <li>Wrote S4 action items: coaching assignments, SSD config, KO Dropbox checks, XP targets, progress monitoring</li>
+  <li>Reviewed all 9 of Ilma's S4 builds &mdash; found 5/7 had no TEACH component, established LEARN&rarr;CHECK&rarr;PRACTICE&rarr;APPLY pattern (2 KEEP + 6 REBUILD)</li>
+  <li>Wrote 4 subject-specific build specs + Ella Dietz Skill 5 intervention spec + Cruce Periods 8-9 spec</li>
+  <li>Built StudyBuddy prototype &mdash; note-taking app for encoding reinforcement</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://drive.google.com/drive/folders/1esy1-ga8cou4sS_mYCDIi-Xg8MCg40sJ" target="_blank">S3 Review Drive Folder</a>
+  <a href="https://workflowy.com/#/bd4a7ec01c0a" target="_blank">S3 BrainLift (Workflowy)</a>
+  <a href="https://workflowy.com/#/82b2efa8bcc3" target="_blank">Proposed S4 Actions (Workflowy)</a>
+  <a href="https://workflowy.com/#/500d22429fde" target="_blank">Student Plans &mdash; 9 students (Workflowy)</a>
+  <a href="https://docs.google.com/spreadsheets/d/1_MqKlC06a5yYGA9ntOyVL5P6PdbNQiSqq0SuF8f_qEY/edit" target="_blank">Practice Test Results</a>
+  <a href="https://docs.google.com/spreadsheets/d/1EYluB2zdQaX5NXobbzqPYRkouopLSq937ZXNtDvl6Wk/edit" target="_blank">FRQ Grading Sheet</a>
+  <a href="https://note-taking.replit.app/cornell/world" target="_blank">StudyBuddy Demo</a>
+  <a href="https://docs.google.com/document/d/1C0AZ5t1xorSGzr95f-LMN6CF_-QzmmEg3HmjH0FldEc/edit" target="_blank">FRQ Analysis Report</a>
+</div>
+</div>
+</details>
+
+<!-- Google Forms -->
+<details>
+<summary>Google Forms Testing Script <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>When Timeback had issues with test administration, wrote a script to create Google Forms for test-taking</li>
+  <li>This is what students used to take Session 3 practice tests</li>
+</ul>
+</div>
+</details>
+
+<!-- AP Psych -->
+<details>
+<summary>AP Psychology <span class="tag live">Live</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Built end-to-end course under Henno</li>
+  <li>Complete course content map
+    <ul>
+      <li>6 units (Unit 0-5), 199 articles, 189 knowledge checks, 73 topic end exercises, 35 topics</li>
+    </ul>
+  </li>
+  <li>Built Unit 1 in full detail: 24 daily videos, 14 reading modules, 54 quiz questions, 26 review MCQs, 2 FRQs</li>
+  <li>Built CED JSON database: 266 records, 83 learning objectives, 262 essential knowledge items</li>
+  <li>Created key concepts spreadsheets &mdash; 287 rows across 5 units</li>
+  <li>Designed automated QC pipeline for MCQ generation: Concept Finder &rarr; Question Generation &rarr; QC Loop with pass/blocker/major issue routing
+    <ul>
+      <li>Python script using Claude API</li>
+      <li>13 Blocker + 19 Major rules (32 total), 4 versions</li>
+    </ul>
+  </li>
+  <li>Generated 600+ knowledge organizer questions currently used by students</li>
+  <li>Built question generation prompts (2 versions: 12-step framework + concept-finder pipeline for GPT-4o)</li>
+  <li>Selected textbooks: Myers' Psychology for AP (Macmillan), Barron's, Princeton Review</li>
+  <li>S3 review: 17 enrolled, 1 tested (Ananya scored 5), identified engagement crisis (93-100% accuracy but low completion)</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/document/d/17Yr1F9R8N-4221f3GNNxiwejdUOKlQnJmBqNpwCS5lM/edit" target="_blank">MCQ Prompt Doc</a>
+  <a href="https://docs.google.com/spreadsheets/d/1JIwKwXfxXeH9wd6hyNYXTPgNxab1DPpNNTLXDaAKKTc/edit?gid=700399995#gid=700399995" target="_blank">Knowledge Organizer Sheet</a>
+  <a href="https://docs.google.com/document/d/1A-FSD-9FBBLQh2XhlYbe1I5yJuhROsayXW--OgUJ6wk/edit" target="_blank">Process Doc</a>
+  <a href="https://workflowy.com/#/3582fee40823" target="_blank">Workflowy</a>
+</div>
+</div>
+</details>
+
+<!-- AP EVS -->
+<details>
+<summary>AP Environmental Science <span class="tag live">Live</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Entire course built end-to-end: lesson plan from CED + AP Edition textbook, chunked into bite-sized articles, videos per topic, knowledge checks, topic quizzes, cumulative unit reviews</li>
+  <li>Course plan: 9 units, 59 topics, 532 content items (98 videos, 183 articles, 183 knowledge checks, 59 topic quizzes, 9 unit reviews)</li>
+  <li>Digitized full CED: 98 topic codes, 113 Learning Objective codes</li>
+  <li>Collected and analyzed 21 official College Board PDFs (FRQs, scoring guidelines, chief reader reports 2019-2024)</li>
+  <li>1460 issues identified and fixed across the course</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/spreadsheets/d/1wO74sS3xcic1jzYBuzEEESn0tXTccN676sFfRu8VbNs/edit?gid=940501502#gid=940501502" target="_blank">Lesson Plan Sheet</a>
+  <a href="https://docs.google.com/document/d/1AmBiTeKGblahigjLuBkiPM5Kc6Ipmjna7NSZ-Xlar_Q/edit" target="_blank">1460 Issues Doc</a>
+  <a href="https://docs.google.com/document/d/1E29AJRXWiGCQji4yahWD4rNBXdwBiuEds4XvniRmPQI/edit" target="_blank">Course Structure Doc</a>
+</div>
+</div>
+</details>
+
+<!-- Edmentum -->
+<details>
+<summary>Edmentum Courseware Adapter <span class="tag live">Live</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Acquired Edmentum courseware &mdash; directly contacted vendor (Linda Thomas, Brittany Nichols) for quotes and course customization</li>
+  <li>Created the entire G6, G7, G8 SS course plan on Edmentum with full XP calculation (~4,275 XP total) and learning outcomes</li>
+  <li>Credit-bearing, TEKS-aligned, cheat-proof adapter (enhanced by Hari)</li>
+  <li>Created rostering documentation and rostered all students, set up credentials via support system</li>
+  <li>Also evaluated StudyIsland for SS grades 3-5</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/document/d/1L2nVaJQngbfNQuM56cZsjIfeqQQ79Hb38hTQ2yOE8ws/edit" target="_blank">Rostering Doc</a>
+</div>
+</div>
+</details>
+
+<!-- FRQ Auto-Grader -->
+<details>
+<summary>FRQ Auto-Grader System <span class="tag live">Live</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Built for APEVS, extensible to all AP courses</li>
+  <li>Automated 4-step pipeline: Classification &rarr; Rubric Generation &rarr; Scoring &rarr; Feedback</li>
+  <li>14+ prompt iterations (~320K characters), 4 production prompts, 3 feedback styles</li>
+  <li>7-stage architecture: Question Parsing &rarr; Rubric Matching &rarr; Response Analysis &rarr; Scoring &rarr; Feedback &rarr; Compilation &rarr; Testing</li>
+  <li>Casey integrated rubric into course 1460 (live). Unit 3 completed and QC'd against AP Classroom rubrics</li>
+  <li>Started APUSH extension with rubric sheet and FRQ research</li>
+  <li>Owned the entire prompt library (Shivam had to request access)</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/document/d/1GQ9Sil9s3GygMbtrtQA9PlDr4dD5KGUvTludizof_hE/edit" target="_blank">Classification</a>
+  <a href="https://docs.google.com/document/d/1RmP22KaMlRzjBOm_a1ALZ4yVxOAanhveIQpvmgNdmNs/edit" target="_blank">Rubric Generation</a>
+  <a href="https://docs.google.com/document/d/1ltdM5Ffg-KXG4hoi4VrlVM6_xbz0y77xjF8onXqZeXQ/edit" target="_blank">Scoring</a>
+  <a href="https://docs.google.com/document/d/1Ik54k5ySASqKmtzqXYl7Ve8cO9Lx36SsbL9_7j-k3Ak/edit" target="_blank">Rubric QC</a>
+  <a href="https://docs.google.com/document/d/14NkLQ_U70a4D2b0vr02L0ndn06kOInwYkB1F0rUocss/edit" target="_blank">Math Instructions</a>
+  <a href="https://docs.google.com/spreadsheets/d/1KjgohqLKfKi8LL4W3wfzuqJxtQluMf8vLoNG6H1e5WM/edit" target="_blank">All APEVS Prompts</a>
+  <a href="https://docs.google.com/document/d/1XQ7hyShHXX3xiUyDnIt4vtuJvoJ2sEF6EYiifvZqwnw/edit" target="_blank">FRQ Handover</a>
+  <a href="https://docs.google.com/spreadsheets/d/1iTDK5eu_bgJJjoqUECz8ea0bLbKOZDN6-_Ff-FPzkOU/edit" target="_blank">APUSH Rubric</a>
+  <a href="https://docs.google.com/document/d/15jaPhUB0M5sGoCrqvG_U5cWIX1nmOHTa05M8HKXrxvM/edit" target="_blank">APUSH FRQ Research</a>
+  <a href="https://workflowy.com/#/b8b9eabfa4dc" target="_blank">Workflowy</a>
+  <a href="https://st-ap-grader.onrender.com/" target="_blank">Testing Interface</a>
+</div>
+</div>
+</details>
+
+<!-- AP Macro -->
+<details>
+<summary>AP Macro &amp; Micro Economics <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Lesson plans for both AP Macro and AP Micro courses</li>
+  <li>Unit 1 questions QC'd through Topic 1.5</li>
+  <li>Plan B done through Unit 1 &mdash; student document needs Unit 2 added</li>
+  <li>Course development tracked across Course 1800, 2000, 1941</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://workflowy.com/#/c3777c32fbe8" target="_blank">Workflowy</a>
+  <a href="https://docs.google.com/spreadsheets/d/1V9wNLzVtS5jezz3OympMFSG0LT9EDT_7hVZ7n4ay8tw/edit" target="_blank">Course Sheet</a>
+  <a href="https://drive.google.com/drive/folders/18SauBj2b0ysd4C9iW6mXsicQmAnuIFkn" target="_blank">Article MD Files</a>
+  <a href="https://docs.google.com/document/d/1K6p2Q7TrlmCJS5elQj0FUYO5UTmORg0h2p_vxI0F7us/edit" target="_blank">Plan B</a>
+  <a href="https://docs.google.com/document/d/1SlctTBOVJOvwivRz2HSCBKgqLvtPPkAOw8rJkD_Qgyc/edit" target="_blank">QC Doc</a>
+  <a href="https://docs.google.com/document/d/1XbVKcQcO0X1LUOPHucU7rr2wybvAaRaRHT0JJSGctk0/edit" target="_blank">Status Doc</a>
+</div>
+</div>
+</details>
+
+<!-- Source Material -->
+<details>
+<summary>AP Source Material &amp; CED Mapping (Aug 2024) <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Selected all source material for every AP course (except AP Lang and AP Lit): US History, World History, AP Psych, AP EVS, AP Physics, AP Chem, AP Human Geo</li>
+  <li>Created the textbook-to-CED mapping process that became the template for all course creation (textbook &rarr; module &rarr; subtopic &rarr; article, mapped to CED units/topics/LOs/EKs)</li>
+  <li>Content research: Reviewed all content and prep books, identified most reliable sources per course</li>
+  <li>College Board scraping: ~300 resources added to Common Crawl, found free textbook versions</li>
+  <li>Supported Daanish with AP Physics lesson plan development</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/document/d/1Apk9_bn66tqSrqZ1WKL-1UXozJYsrbpphzCnfGkq-Jg/edit" target="_blank">AP Source Material &amp; CED Mapping</a>
+  <a href="https://www.macmillanlearning.com/ed/uk/product/College-Physics-for-the-AP-Physics-1--2-Courses-3rd-edition/p/1319486215#collapseTwo_R" target="_blank">AP Physics Textbook (Macmillan)</a>
+</div>
+</div>
+</details>
+
+<!-- Raised Quality -->
+<details>
+<summary>Raised AP Quality Standards (Aug 2024) <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>When HS launched and AP courses were failing students, formally raised quality concerns to Gui in the "High School Emergency" thread</li>
+  <li>Identified specific issues: insufficient content, lack of course structure, AI-generated articles instead of AP textbooks, missing images/graphs, no foundational math review in Physics</li>
+  <li>Recommended immediate backup plan using OER</li>
+  <li>This quality intervention led directly to the complete course rebuild that she then executed</li>
+</ul>
+</div>
+</details>
+
+<!-- Student Study Plans -->
+<details>
+<summary>Individual Student Study Plans (Dec 2024 &ndash; Jan 2025) <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>For all AP courses that weren't ready on AlphaLearn, created individual study plans so students wouldn't fall behind</li>
+  <li><strong>AP Physics 1</strong> &mdash; full multi-unit study plan with topic breakdowns, XP tracking, AP Classroom credentials, textbook links, video playlists. Students: Alex Mathew, Reuben Runacres, Clara Aboel-Nil, Madelena Price</li>
+  <li><strong>AP Chemistry</strong> &mdash; full multi-unit study plan. Students: Elle Liemandt, Ella Gremont</li>
+  <li><strong>AP Psychology</strong> &mdash; Unit 1 study plan created while course was being built</li>
+</ul>
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://docs.google.com/document/d/1yeaBpFJVLgB2KvTNZqkkGWoq7kaqfCXrPWMClbHqiaU/edit" target="_blank">AP Physics Study Plan</a>
+  <a href="https://docs.google.com/document/d/1p8ePpemxLcqgSCmoU84bc5lXznn0XOAFV1KPu5N7RcQ/edit" target="_blank">AP Chem Study Plan</a>
+  <a href="https://drive.google.com/drive/folders/1PZxFRO4amuynUx_fGG5a--ywuREQ4338" target="_blank">Student Plans Folder</a>
+</div>
+</div>
+</details>
+
+<!-- BrainLifts -->
+<details>
+<summary>BrainLifts (8 Deep Research Documents) <span class="tag done">Done</span></summary>
+<div class="detail-content">
+
+<div class="subsection">
+<div class="subsection-title">1. S3 AP Review BrainLift (Feb-Mar 2026)</div>
+<ul>
+  <li>11 DOK4 Spiky POVs (strategic insights with data evidence):
+    <ul>
+      <li>FRQ as AP score dividing line (not MCQ)</li>
+      <li>Recognition-retrieval gap (25-30 pt drop when context removed)</li>
+      <li>Individualized CED skill remediation over topic-level review</li>
+      <li>DBQ instruction as highest-leverage intervention</li>
+      <li>AP Psych/Gov = engagement crises not ability problems</li>
+      <li>Completion &ne; readiness (Branson: 100% completion, score 2)</li>
+      <li>Key student profiles (Ella one fix from 5, Cruce one fix from 5)</li>
+    </ul>
+  </li>
+  <li>17 DOK3 Insights (key findings with evidence)</li>
+  <li>DOK1/DOK2 Knowledge Tree with full data references</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">2. Social Studies K-8 BrainLift</div>
+<ul>
+  <li>Curriculum architecture for building K-8 SS serving all states</li>
+  <li>Standards analysis, cross-state mapping methodology</li>
+  <li>Design principles for scalable, system-driven learning</li>
+  <li>Assessment framework grounded in cognitive development research</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">3. AP Language &amp; Literature BrainLift (Jan 2026)</div>
+<ul>
+  <li>6 Truths + 3 Myths about AP English instruction</li>
+  <li>8 AP thought leaders referenced as expert resources</li>
+  <li>3 ILDs: Practice format (3 consecutive quizzes), Quiz structure (20 Qs per quiz), Quiz placement (Article &rarr; Quiz pattern)</li>
+  <li>Learning science: Analytical momentum, phantom progress syndrome (-23% semantic processing in digital reading), template-based composition (-40% organizational time)</li>
+  <li>Essay evaluation: Separating rubric scoring into individual prompts &rarr; >90% match with AP scores</li>
+  <li>Row A (Thesis), Row B (Evidence + Commentary), Row C (Sophistication)</li>
+  <li>2 comprehensive passage selection checklists</li>
+  <li>AI generation testing: 3 OpenAI models tested, GPT4.1 selected (12/15 blind comparisons), 10-metric evaluation framework</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">4. AP Repair &amp; Revise BrainLift (Feb 2026)</div>
+<ul>
+  <li>3-Layer Learning Model: Core Knowledge &rarr; Disciplinary Moves &rarr; Exam Technique</li>
+  <li>41 AP students assessed, &lt;10 achieved 5 on both MCQ and FRQ</li>
+  <li>7 proposals ranked by priority (diagnostic assessment, Heimler videos, reading cards, retrieval engine rebuild, AlphaTok, exam practice, AP Lang review)</li>
+  <li>Time to Learn analysis: Current ~35-45 mins/topic &rarr; Redesigned ~24-30 mins/topic</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">5. U.S. Citizenship Civics Course/App</div>
+<ul>
+  <li>Learning science for civics test prep</li>
+  <li>Detailed spec for course/app design</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">6. Rethinking Course Design for HS</div>
+<ul>
+  <li>Backward design, UDL, Bloom's taxonomy, cognitive science frameworks</li>
+  <li>Framework for redesigning HS courses for self-paced digital learning</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">7. Brownsville Coaching Insights + Preschool-Linc</div>
+<ul>
+  <li>Coaching patterns and anti-patterns database from campus observations</li>
+  <li>2X learning outcomes framework for preschool program</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">8. Personalized Learning</div>
+<ul>
+  <li>Critical analysis of personalized learning approaches</li>
+  <li>What works vs. what doesn't in adaptive learning</li>
+</ul>
+</div>
+
+<div class="links">
+  <div class="links-label">Links</div>
+  <a href="https://workflowy.com/#/bd4a7ec01c0a" target="_blank">S3 AP BrainLift (Workflowy)</a>
+  <a href="https://workflowy.com/#/3a3ee65e7a25" target="_blank">Social Studies K-8 (Workflowy)</a>
+  <a href="https://workflowy.com/#/abf149ef88e3" target="_blank">Full Workflowy</a>
+</div>
+</div>
+</details>
+
+<!-- Other -->
+<details>
+<summary>Other Work <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li><strong>Civics Time Machine</strong> &mdash; Concept developed and handed to Dan/SuperBuilders for implementation</li>
+  <li><strong>Brownsville Campus DRI</strong> &mdash; Served as campus DRI for 30-50 students across 3 campuses (Nova Bastrop, Brownsville, Santa Barbara). Weekly coaching calls and student support</li>
+</ul>
+</div>
+</details>
+
+<!-- AP Master Links -->
+<details>
+<summary>AP Work &mdash; Master Drive Folder</summary>
+<div class="detail-content">
+<div class="links" style="border-top:none; padding-top:0; margin-top:0;">
+  <a href="https://drive.google.com/drive/folders/1PZxFRO4amuynUx_fGG5a--ywuREQ4338" target="_blank">All AP Work (Drive)</a>
+</div>
+</div>
+</details>
+
+</div>
+
+<!-- ==================== Systems & Processes ==================== -->
+<div class="section-header systems">Systems &amp; Processes Built</div>
+<div class="section-body">
+
+<details>
+<summary>Cross-State Standards Mapping System <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>LLM-based mapping system with classification rules for equivalent, related, or no-match</li>
+  <li>6 states analyzed against TEKS baseline (564 standards mapped)</li>
+  <li>Automated classification pipeline for comparing standards across state frameworks</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>App Evaluation Framework (6-Gatekeeper) <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>6 non-negotiable criteria: Independence &amp; Scalability, Cognitive Load Management, Decision &amp; Application, Retrieval &amp; Practice, Objective Assessability, Knowledge-First &amp; Narrative Coherence</li>
+  <li>Classification system: Core-Ready / Enrichment / Misaligned</li>
+  <li>15+ apps evaluated, applied across K-8 and AP</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>Assessment Tagging System <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>6 tag dimensions: Domain, DOK (1-4), NCSS themes (10), Learning Objectives, Flesch-Kincaid Readability, Item Types</li>
+  <li>Applied to grade-by-grade assessment framework (G3-5)</li>
+  <li>DOK-distributed, domain-balanced test blueprints (History 40%, Geo 25%, Gov 20%, Econ 15%)</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>QC Pipeline (Social Studies Tests) <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>175 documented QC issues &rarr; script-decomposed into 521 granular, objective QC checks</li>
+  <li>87% of reviewed items required comments or changes</li>
+  <li>Cross-subject QC data: 234 tracked tests, 1,855 question-level issues, 9,566 questions needing manual tagging</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>MCQ Generation QC Pipeline (AP Psychology) <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Concept Finder &rarr; Question Generation &rarr; QC Loop with pass/blocker/major issue routing</li>
+  <li>Python script using Claude API, 4 versions</li>
+  <li>13 Blocker + 19 Major rules (32 total QC rules)</li>
+  <li>Generated 600+ knowledge organizer questions currently used by students</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>Automated Test Creation System <span class="tag onhold">On Hold</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Centralized question bank with multi-dimensional tagging</li>
+  <li>Framework controls every test: domain, DOK, item type, standards coverage</li>
+  <li>Instruction &rarr; assessment alignment enforced</li>
+  <li>G3 TEKS MVP scoped; Akshit built prototypes (Study Island scraper, CASE standards for all 50 states)</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>FRQ AutoGrader (7-Stage Architecture) <span class="tag live">Live</span></summary>
+<div class="detail-content">
+<ul>
+  <li>7 stages: Question Parsing &rarr; Rubric Matching &rarr; Response Analysis &rarr; Scoring &rarr; Feedback Generation &rarr; Compilation &rarr; Testing</li>
+  <li>4 production prompts, 14+ iterations (~320K characters), 3 feedback styles</li>
+  <li>Task verb system: Identify, Describe, Explain, Make a Claim, Justify, Propose, Calculate</li>
+  <li>Live on APEVS course 1460, extending to APUSH</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>3-Layer Learning Framework <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Layer 1: Core Knowledge Acquisition &amp; Memorization</li>
+  <li>Layer 2: Disciplinary Moves (subject-specific analytical skills)</li>
+  <li>Layer 3: Exam Technique (MCQ/FRQ format mastery)</li>
+  <li>Every at-risk student mapped to which layer(s) they fail on with CED skill breakdowns</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>Recognition-Retrieval Gap Framework <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Identified 25-30 point drop when context clues removed from assessment</li>
+  <li>Explains why high Timeback completion doesn't predict AP scores</li>
+  <li>Applied to S4 build review: 5/7 builds had no TEACH component (reinforced the gap)</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>LEARN&rarr;CHECK&rarr;PRACTICE&rarr;APPLY Pattern <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Established as standard build pattern after reviewing 9 Ilma builds</li>
+  <li>2 builds (B2 HIPP, B7 IEC) identified as gold-standard templates</li>
+  <li>6 builds required rebuild to follow pattern</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>CED Skill Mapping System <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Per-student skill profiles mapped against College Board CED</li>
+  <li>Applied across 5 AP subjects (HuGeo, World, APUSH, Psych, Gov)</li>
+  <li>Master spreadsheet: 20 students &times; 12 columns (scores, insights, action plans, student-facing summaries)</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>Student Risk Classification (6-Tier) <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Critical &rarr; High &rarr; Moderate &rarr; Watch &rarr; On-Track &rarr; Low risk tiers</li>
+  <li>9 at-risk students identified with individual plans</li>
+  <li>Cross-subject tracking for students in multiple AP courses</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>Science Image Generation System <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>3 Python scripts: API-based (Gemini), upgraded v3 with grade-level parsing, browser automation fallback (Playwright)</li>
+  <li>214 total images generated across G3-G8</li>
+  <li>Grade-appropriate style guides for each grade level</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>G3 Article Design System <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Component specs: Title, Learning Objective Box, Vocabulary Box (8-12 terms), Body Paragraphs (2-4 sentences, 16px), Section Headings, Think Boxes, Maps, Primary Sources, Videos</li>
+  <li>Map instruction: "How to Read a Map" box before + "What This Map Shows" box after</li>
+  <li>Primary source scaffolding: What is it? &rarr; What do you see? &rarr; What does it mean? &rarr; What does this tell us?</li>
+  <li>Things to automate: Vocab/learning objective generation, article formatting, video finding prompt</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>Textbook-to-CED Mapping Process <span class="tag done">Done</span></summary>
+<div class="detail-content">
+<ul>
+  <li>Created the process that became the template for all AP course creation</li>
+  <li>Textbook &rarr; Module &rarr; Subtopic &rarr; Article, mapped to CED Units/Topics/LOs/EKs</li>
+  <li>Applied across all AP courses (US History, World History, AP Psych, AP EVS, AP Physics, AP Chem, AP Human Geo)</li>
+</ul>
+</div>
+</details>
+
+</div>
+
+</div>
+</body>
+</html>
